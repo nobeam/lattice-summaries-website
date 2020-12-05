@@ -3,9 +3,12 @@
     class="container mx-auto p-4 flex flex-col md:flex-row md:justify-between items-center"
   >
     <div class="flex flex-col md:flex-row items-center">
-      <router-link to="/" class="flex mr-4">
-        <img draggable="false" src="../assets/logo-mark.svg" height="48" />
-        <img draggable="false" src="../assets/logo-type.svg" height="48" />
+      <router-link to="/" class="flex mr-4 items-center">
+        <!-- TODO: make brands submodule of this repo -->
+        <img draggable="false" src="../assets/logo-icon.svg" height="48" />
+        <!-- <img draggable="false" src="../assets/logo-type.svg" height="48" /> -->
+        <span class="p-1"></span>
+        <h1 class="text-xl font-medium">Lattice Summaries</h1>
       </router-link>
       <router-link
         :to="{ path: '/', hash: '#summaries' }"

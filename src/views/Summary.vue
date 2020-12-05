@@ -21,7 +21,7 @@
 
       <section>
         <h2 class="text-2xl font-medium mb-4">Optical Functions Plot</h2>
-        <img :src="`/${$baseURL}/summary/${name}/elegant/twiss.svg`" />
+        <img :src="`/${$dataURL}/summary/${name}/elegant/twiss.svg`" />
       </section>
 
       <section>
@@ -45,7 +45,7 @@
       <section>
         <h2 class="text-2xl font-medium mb-4">Chromaticity</h2>
         <figure>
-          <img :src="`/${$baseURL}/summary/${name}/elegant/chroma.svg`" />
+          <img :src="`/${$dataURL}/summary/${name}/elegant/chroma.svg`" />
           <figcaption>
             Chromaticity from the ”twiss output” command (3rd order
             calculation).
@@ -60,7 +60,7 @@
 import Table from "../components/Table.vue";
 
 export default {
-  name: "SummaryElegant",
+  name: "Summary",
   components: { Table },
   data() {
     return {
@@ -89,7 +89,7 @@ export default {
     console.log("start change");
     this.name = this.$route.params.name;
     const response = await fetch(
-      `/${this.$baseURL}/summary/${this.name}/elegant/twiss_tables.json`
+      `/${this.$dataURL}/summary/${this.name}/elegant/twiss_tables.json`
     );
     this.twiss_tables = await response.json();
     console.log("end change");

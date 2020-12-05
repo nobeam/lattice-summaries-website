@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="py-8">
+    <!-- <section class="py-8">
       <div class="container m-auto px-4 grid gap-y-8 justify-items-center">
         <h1 class="text-primary-900 text-2xl font-medium">
           Automatically generated summaries of BESSY III prototype lattices
@@ -9,7 +9,7 @@
           click on summary to view full lattice summary
         </h2>
       </div>
-    </section>
+    </section> -->
     <section id="summaries" class="py-8 border-b-2 border-gray-100">
       <div class="container mx-auto px-4">
         <div
@@ -21,6 +21,16 @@
             :key="lattice.name"
           >
             <h2 class="text-xl font-medium">{{ lattice.title }}</h2>
+            <div class="">
+              <span
+                v-for="(label, index) in lattice.labels"
+                :key="index"
+                class="mx-1 text-primary-700 bg-primary-100 h-10 rounded px-2 py-1 text-xs select-none"
+              >
+                {{ label }}
+              </span>
+            </div>
+
             <h4 class="text-lg text-gray-700">by {{ lattice.author }}</h4>
             <p>{{ lattice.description }}</p>
             <h4 class="font-semibold text-sm">Lattice files:</h4>
@@ -74,7 +84,7 @@ export default {
     };
   },
   async created() {
-    const response = await fetch(this.$baseURL + "/index.json");
+    const response = await fetch(this.$dataURL + "/index.json");
     this.info = await response.json();
   },
 };

@@ -5,6 +5,6 @@ import './index.css'
 import router from './router'
 
 const app = createApp(App)
-app.config.globalProperties.$baseURL = import.meta.env.VITE_API_URL
+app.config.globalProperties.$dataURL = import.meta.env.VITE_DATA_URL
 app.use(router)
 app.mount('#app')

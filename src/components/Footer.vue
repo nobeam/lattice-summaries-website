@@ -71,12 +71,12 @@
         </li>
       </ul>
     </div>
-    <div class="flex py-8">
+    <a class="flex py-8" href="https://github.com/nobeam" target="_blank">
       <img draggable="false" src="../assets/logo-mark.svg" />
       <img draggable="false" src="../assets/logo-type.svg" />
-    </div>
+    </a>
     <span>
-      BESSY III lattice summaries &copy; {{ new Date().getFullYear() }} NoBeam
+      Lattice summaries &copy; {{ new Date().getFullYear() }} NoBeam
     </span>
   </footer>
 </template>

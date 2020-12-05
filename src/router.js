@@ -4,7 +4,7 @@ import {
 } from 'vue-router'
 
 import LandingPage from './views/LandingPage.vue'
-import SummaryElegant from './views/SummaryElegant.vue'
+import Summary from './views/Summary.vue'
 
 export default createRouter({
     history: createWebHistory(),
@@ -15,7 +15,7 @@ export default createRouter({
         },
         {
             path: '/elegant/:name',
-            component: SummaryElegant
+            component: Summary
         },
     ],
     scrollBehavior(to) {
