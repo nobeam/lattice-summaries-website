@@ -19,8 +19,8 @@ module.exports = {
             white: colors.white,
             black: colors.black,
             gray: colors.blueGray,
-            // primary: colors.lightBlue,
-            primary: colors.teal,
+            primary: colors.lightBlue,
+            // primary: colors.teal,
             secondary: colors.blue,
             danger: colors.red,
             warning: colors.orange
