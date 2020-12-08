@@ -85,9 +85,9 @@ export default {
     this.name = this.$route.params.name;
     this.namespace = this.$route.params.namespace;
     this.simulation = this.$route.query.simulation;
-    let base_path = `/${this.$dataURL}/${this.namespace}/${this.name}/`;
+    let base_path = `${this.$dataURL}/${this.namespace}/${this.name}/`;
     this.content_path = base_path + `${this.simulation}/`;
-    let response = await fetch(this.content_path + "/twiss_tables.json");
+    let response = await fetch(this.content_path + "twiss_tables.json");
     this.twiss_tables = await response.json();
     response = await fetch(base_path + "index.json");
     this.lattice = await response.json();
