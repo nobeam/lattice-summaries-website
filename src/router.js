@@ -6,6 +6,7 @@ import {
 import LandingPage from './views/LandingPage.vue'
 import Summary from './views/Summary.vue'
 import Namespace from './views/Namespace.vue'
+import Lattice from './views/Lattice.vue'
 
 export default createRouter({
     mode: 'history',
@@ -17,8 +18,13 @@ export default createRouter({
             component: LandingPage
         },
         {
-            name: "summary",
+            name: "lattice",
             path: '/:namespace/:name',
+            component: Lattice
+        },
+        {
+            name: "summary",
+            path: '/:namespace/:name/:simulation',
             component: Summary
         },
         {

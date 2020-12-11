@@ -2,7 +2,7 @@
   <main class="py-8">
     <div class="container m-auto px-4">
       <section class="mb-8">
-        <h1 class="text-4xl font-medium mb-4">
+        <h1 class="text-2xl font-medium mb-4">
           Summary of {{ lattice.title }}
         </h1>
         <h3>
@@ -28,16 +28,17 @@
         >
           <h2 class="text-xl font-medium mb-4">{{ table[0] }}</h2>
           <div
-            class="flex-grow grid gap-4 place-items-stretch"
+            class="flex-grow grid gap-4"
             :class="{ 'lg:grid-cols-2': table[1].length > 1 }"
           >
             <div v-for="(sub, index) in table[1]" :key="index">
               <img
+                class="w-full"
                 v-if="typeof sub === 'string'"
                 :src="this.content_path + sub"
                 data-zoomable="true"
               />
-              <Table v-else :data="sub" />
+              <Table v-else class="w-full" :data="sub" />
             </div>
           </div>
         </Card>
@@ -84,7 +85,7 @@ export default {
     console.log("start change");
     this.name = this.$route.params.name;
     this.namespace = this.$route.params.namespace;
-    this.simulation = this.$route.query.simulation;
+    this.simulation = this.$route.params.simulation;
     let base_path = `${this.$dataURL}/${this.namespace}/${this.name}/`;
     this.content_path = base_path + `${this.simulation}/`;
     let response = await fetch(this.content_path + "twiss_tables.json");

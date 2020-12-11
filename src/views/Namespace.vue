@@ -1,5 +1,9 @@
 <template>
-  <div>This is the namespace view!</div>
+  <main class="bg-white py-8">
+    <div class="container m-auto px-4">
+      <div>This is the namespace {{ $route.params.namespace }}!</div>
+    </div>
+  </main>
 </template>
 
 <script>
