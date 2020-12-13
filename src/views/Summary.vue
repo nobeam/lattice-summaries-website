@@ -1,5 +1,5 @@
 <template>
-  <main class="py-8">
+  <main class="py-8" v-if="this.lattice !== null">
     <div class="container m-auto px-4">
       <section class="mb-8">
         <h1 class="text-2xl font-medium mb-4">
@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       name: "",
-      lattice: { authors: [] },
+      lattice: null,
       simulation: "",
       twiss_tables: {},
       content_path: "",
@@ -70,29 +70,26 @@ export default {
       },
     };
   },
-  computed: {
-    metaData() {
-      return [
-        ["Title", this.lattice.title],
-        ["Author", this.lattice.author],
-        ["Name", this.lattice.name],
-        ["Description", this.lattice.description],
-      ];
-    },
+  async created() {
+    await this.fetchData();
   },
-  // tODO: make sure this updates if url changes
-  async mounted() {
-    console.log("start change");
-    this.name = this.$route.params.name;
-    this.namespace = this.$route.params.namespace;
-    this.simulation = this.$route.params.simulation;
-    let base_path = `${this.$dataURL}/${this.namespace}/${this.name}/`;
-    this.content_path = base_path + `${this.simulation}/`;
-    let response = await fetch(this.content_path + "twiss_tables.json");
-    this.twiss_tables = await response.json();
-    response = await fetch(base_path + "index.json");
-    this.lattice = await response.json();
-    console.log("end change");
+  watch: {
+    $route: "fetchData",
+  },
+  methods: {
+    async fetchData() {
+      this.name = this.$route.params.name;
+      this.namespace = this.$route.params.namespace;
+      this.simulation = this.$route.params.simulation;
+      const base_path = `${this.$dataURL}/${this.namespace}/${this.name}/`;
+      const content_path = base_path + `${this.simulation}/`;
+      let response = await fetch(content_path + "twiss_tables.json");
+      this.twiss_tables = await response.json();
+      response = await fetch(base_path + "index.json");
+      this.lattice = await response.json();
+      // defer to make sure twiss_tables is loaded before imgs are updated
+      this.content_path = content_path;
+    },
   },
 };
 </script>

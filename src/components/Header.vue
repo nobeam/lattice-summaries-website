@@ -5,11 +5,11 @@
     <div class="flex flex-col md:flex-row items-center">
       <router-link to="/" class="flex mr-4 items-center">
         <!-- TODO: make brands submodule of this repo -->
-        <img draggable="false" src="../assets/logo-icon.svg" width="48" />
-        <span class="p-1"></span>
-        <h1 class="text-lg font-medium">Lattice Summaries</h1>
+        <img draggable="false" src="../assets/logo-icon.svg" />
+        <span class="p-2"></span>
+        <h1 class="text-xl font-medium">Lattice Summaries</h1>
       </router-link>
-      <router-link
+      <!-- <router-link
         :to="{ path: '/', hash: '#summaries' }"
         class="m-2 p-2 text-gray-900 hover:text-gray-700"
       >
@@ -20,7 +20,7 @@
         class="m-2 p-2 text-gray-900 hover:text-gray-700"
       >
         How it works
-      </router-link>
+      </router-link> -->
     </div>
     <div class="flex items-center">
       <a

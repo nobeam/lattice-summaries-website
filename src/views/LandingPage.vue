@@ -10,13 +10,26 @@
         </h2>
       </div>
     </section> -->
+    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
+      <div class="container mx-auto px-4">
+        <h1 class="my-4 text-2xl font-medium">Overview of Machines</h1>
+        <NamespaceList :namespaces="latticesByMachine" />
+      </div>
+    </section>
+    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
+      <div class="container mx-auto px-4">
+        <h1 class="my-4 text-2xl font-medium">Overview of Namespaces</h1>
+        <NamespaceList :namespaces="allNamespaces" />
+      </div>
+    </section>
     <section id="summaries" class="py-8 border-b-2 border-gray-100">
       <div class="container mx-auto px-4">
-        <LatticeList :lattices="info.lattices" />
+        <h1 class="my-4 text-2xl font-medium">Recent Lattices</h1>
+        <LatticeList :lattices="allLattices" />
       </div>
     </section>
     <section
-      v-if="False"
+      v-if="false"
       id="how-it-works"
       class="bg-white py-8 border-b-2 border-gray-100"
     >
@@ -31,21 +44,17 @@
 
 
 <script>
+import { mapGetters } from "vuex";
+
 import Card from "../components/Card.vue";
-import LatticeInfo from "../components/LatticeInfo.vue";
 import LatticeList from "../components/LatticeList.vue";
+import NamespaceList from "../components/NamespaceList.vue";
 
 export default {
   name: "LandingPage",
-  components: { Card, LatticeInfo, LatticeList },
-  data() {
-    return {
-      info: [],
-    };
-  },
-  async created() {
-    const response = await fetch(this.$dataURL + "/index.json");
-    this.info = await response.json();
+  components: { Card, LatticeList, NamespaceList },
+  computed: {
+    ...mapGetters(["allLattices", "allNamespaces", "latticesByMachine"]),
   },
 };
 </script>

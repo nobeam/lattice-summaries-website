@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50">
+  <div class="bg-gray-50 grid min-h-screen">
     <!-- <div
       v-if="showBanner"
       class="p-4 bg-warning-100 text-warning-900 text-lg flex justify-center cursor-pointer"
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
@@ -24,6 +26,12 @@ export default {
     return {
       showBanner: true,
     };
+  },
+  methods: {
+    ...mapActions(["getInfo"]),
+  },
+  mounted() {
+    this.getInfo();
   },
 };
 </script>

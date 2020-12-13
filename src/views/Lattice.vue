@@ -1,8 +1,6 @@
 <template>
   <main class="bg-white py-8">
     <div class="container m-auto px-4">
-      <div>This is the namespace of {{ $route.params.name }}!</div>
-
       <LatticeInfo v-if="lattice !== null" :lattice="lattice" />
     </div>
   </main>
@@ -25,7 +23,6 @@ export default {
     this.namespace = this.$route.params.namespace;
     this.simulation = this.$route.params.simulation;
     const base_path = `${this.$dataURL}/${this.namespace}/${this.name}/`;
-    console.log(base_path);
     const response = await fetch(base_path + "index.json");
     this.lattice = await response.json();
   },

@@ -19,7 +19,10 @@
         </router-link>
       </div>
       <h4 class="text-gray-700 italic">by {{ lattice.authors.join(", ") }}</h4>
-      <div class="my-1" v-if="this.lattice.labels !== []">
+      <div
+        class="my-1"
+        v-if="lattice.labels === undefined || lattice.labels.length"
+      >
         <span
           v-for="(label, index) in lattice.labels"
           :key="index"
@@ -36,7 +39,7 @@
         <a
           v-for="format in ['json', 'madx', 'lte']"
           :key="format"
-          class="px-2 py-0.5 rounded bg-gray-50 border border-gray-200 hover:underline"
+          class="px-4 py-1 rounded bg-gray-50 border border-gray-100 shadow hover:underline transform hover:scale-105"
           :href="`https://github.com/nobeam/lattice-summaries-lattices/blob/generated/${lattice.namespace}/${lattice.name}.${format}`"
           target="_blank"
         >
@@ -48,7 +51,7 @@
         <router-link
           v-for="simulation in lattice.simulations"
           :key="simulation"
-          class="px-5 py-1.5 font-medium rounded bg-gray-50 border border-gray-200 hover:border-gray-100 hover:scale-95"
+          class="px-4 py-1 rounded bg-gray-50 border border-gray-100 shadow transform hover:scale-105"
           :to="{
             path: `/${lattice.namespace}/${lattice.name}/${simulation}`,
           }"
