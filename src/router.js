@@ -5,17 +5,32 @@ import {
 
 import LandingPage from './views/LandingPage.vue'
 import Summary from './views/Summary.vue'
+import Namespace from './views/Namespace.vue'
+import Lattice from './views/Lattice.vue'
 
 export default createRouter({
+    mode: 'history',
     history: createWebHistory(),
     routes: [
         {
+            name: "home",
             path: '/',
             component: LandingPage
         },
         {
-            path: '/elegant/:name',
+            name: "lattice",
+            path: '/:namespace/:name',
+            component: Lattice
+        },
+        {
+            name: "summary",
+            path: '/:namespace/:name/:simulation',
             component: Summary
+        },
+        {
+            name: "namespace",
+            path: '/:namespace',
+            component: Namespace
         },
     ],
     scrollBehavior(to) {

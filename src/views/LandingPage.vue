@@ -10,58 +10,31 @@
         </h2>
       </div>
     </section> -->
-    <section id="summaries" class="py-8 border-b-2 border-gray-100">
+    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
       <div class="container mx-auto px-4">
-        <div
-          class="grid gap-x-4 gap-y-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
-        >
-          <div
-            class="p-5 border border-gray-100 rounded-lg shadow flex flex-col gap-4"
-            v-for="lattice in info.lattices"
-            :key="lattice.name"
-          >
-            <h2 class="text-xl font-medium">{{ lattice.title }}</h2>
-            <div class="">
-              <span
-                v-for="(label, index) in lattice.labels"
-                :key="index"
-                class="mx-1 text-primary-700 bg-primary-100 h-10 rounded px-2 py-1 text-xs select-none"
-              >
-                {{ label }}
-              </span>
-            </div>
-
-            <h4 class="text-lg text-gray-700">by {{ lattice.author }}</h4>
-            <p>{{ lattice.description }}</p>
-            <h4 class="font-semibold text-sm">Lattice files:</h4>
-            <p class="flex gap-2">
-              <a
-                v-for="format in lattice.formats"
-                :key="format"
-                class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded"
-                target="_blank"
-              >
-                .{{ format }}
-              </a>
-            </p>
-            <h4 class="font-semibold text-sm">Summaries:</h4>
-            <p class="flex gap-2">
-              <router-link
-                v-for="format in lattice.formats"
-                :key="format"
-                class="px-8 py-2 border border-gray-300 rounded"
-                :to="`/elegant/${lattice.name}`"
-              >
-                {{ nameMap[format] }}
-              </router-link>
-            </p>
-          </div>
-        </div>
+        <h1 class="my-4 text-2xl font-medium">Overview of Machines</h1>
+        <NamespaceList :namespaces="latticesByMachine" />
       </div>
     </section>
-    <section id="how-it-works" class="py-8 border-b-2 border-gray-100">
+    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
       <div class="container mx-auto px-4">
-        <h1 class="text-center text-primary-700 font-semibold text-4xl mb-16">
+        <h1 class="my-4 text-2xl font-medium">Overview of Namespaces</h1>
+        <NamespaceList :namespaces="allNamespaces" />
+      </div>
+    </section>
+    <section id="summaries" class="py-8 border-b-2 border-gray-100">
+      <div class="container mx-auto px-4">
+        <h1 class="my-4 text-2xl font-medium">Recent Lattices</h1>
+        <LatticeList :lattices="allLattices" />
+      </div>
+    </section>
+    <section
+      v-if="false"
+      id="how-it-works"
+      class="bg-white py-8 border-b-2 border-gray-100"
+    >
+      <div class="container mx-auto px-4">
+        <h1 class="text-center text-gray-900 font-semibold text-4xl mb-16">
           How It Works
         </h1>
       </div>
@@ -71,21 +44,17 @@
 
 
 <script>
+import { mapGetters } from "vuex";
+
+import Card from "../components/Card.vue";
+import LatticeList from "../components/LatticeList.vue";
+import NamespaceList from "../components/NamespaceList.vue";
+
 export default {
   name: "LandingPage",
-  data() {
-    return {
-      info: [],
-      nameMap: {
-        lte: "elegant",
-        madx: "MAD-X",
-        json: "apace",
-      },
-    };
-  },
-  async created() {
-    const response = await fetch(this.$dataURL + "/index.json");
-    this.info = await response.json();
+  components: { Card, LatticeList, NamespaceList },
+  computed: {
+    ...mapGetters(["allLattices", "allNamespaces", "latticesByMachine"]),
   },
 };
 </script>
