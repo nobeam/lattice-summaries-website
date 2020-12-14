@@ -18,8 +18,8 @@ module.exports = {
         colors: {
             white: colors.white,
             black: colors.black,
-            gray: colors.blueGray,
-            // gray: colors.gray,
+            // gray: colors.blueGray,
+            gray: colors.gray,
             primary: colors.lightBlue,
             // primary: colors.teal,
             secondary: colors.blue,

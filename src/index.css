@@ -1,3 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.border-shadow {
+    @apply rounded border border-gray-100 shadow-sm
+}
