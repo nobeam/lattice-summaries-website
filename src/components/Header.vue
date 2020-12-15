@@ -22,18 +22,24 @@
         How it works
       </router-link> -->
     </div>
-    <div class="flex items-center">
-      <a
-        class="m-2 p-2 italic text-gray-900 hover:text-gray-700"
-        href="https://www.github.com/nobeam/lattice-summaries-website/"
-        target="_blank"
-      >
-        Source Code ↗
-      </a>
-    </div>
+    <a
+      class="flex items-center m-2 p-2 text-sm hover:text-gray-700"
+      href="https://www.github.com/nobeam/lattice-summaries-website/"
+      target="_blank"
+    >
+      <HeroIcon :paths="['M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4']" />
+      Source Code
+    </a>
   </header>
 </template>
 
 <script>
-export default { name: "Header" };
+import HeroIcon from "./HeroIcon.vue";
+
+export default {
+  name: "Header",
+  components: {
+    HeroIcon,
+  },
+};
 </script>

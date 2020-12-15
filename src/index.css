@@ -3,5 +3,13 @@
 @import "tailwindcss/utilities";
 
 .border-shadow {
-    @apply rounded border border-gray-100 shadow-sm
+    @apply rounded border border-gray-200 shadow-sm
+}
+
+.button-outline {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-500
+}
+
+.button-outline-within {
+    @apply focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-primary-500
 }
