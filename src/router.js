@@ -5,7 +5,7 @@ import {
 
 import LandingPage from './views/LandingPage.vue'
 import Summary from './views/Summary.vue'
-import Namespace from './views/Namespace.vue'
+import Search from './views/Search.vue'
 import Lattice from './views/Lattice.vue'
 
 export default createRouter({
@@ -13,9 +13,14 @@ export default createRouter({
     history: createWebHistory(),
     routes: [
         {
-            name: "home",
+            name: "root",
             path: '/',
-            component: LandingPage
+            component: Search
+        },
+        {
+            name: "search",
+            path: '/:namespace',
+            component: Search
         },
         {
             name: "lattice",
@@ -28,10 +33,11 @@ export default createRouter({
             component: Summary
         },
         {
-            name: "namespace",
-            path: '/:namespace',
-            component: Namespace
+            name: "home",
+            path: '/home',
+            component: LandingPage
         },
+
     ],
     scrollBehavior(to) {
         if (to.hash) {

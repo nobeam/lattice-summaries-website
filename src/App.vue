@@ -1,16 +1,18 @@
 <template>
-  <div class="bg-gray-50 grid min-h-screen">
-    <!-- <div
-      v-if="showBanner"
-      class="p-4 bg-warning-100 text-warning-900 text-lg flex justify-center cursor-pointer"
-      @click="showBanner = false"
-    >
-      🚧 Work in progress 🚧
-    </div> -->
+  <!-- <div
+    v-if="showBanner"
+    class="p-4 bg-warning-100 text-warning-900 text-lg flex justify-center cursor-pointer"
+    @click="showBanner = false"
+  >
+    🚧 Work in progress 🚧
+  </div> -->
+  <div class="bg-gray-50 min-h-screen flex flex-col">
     <Header />
     <router-view></router-view>
+    <div class="flex-grow"></div>
     <Footer />
   </div>
+  <div class="h-1"></div>
 </template>
 
 <script>

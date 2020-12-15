@@ -26,7 +26,7 @@ export default createStore({
             return state.info.lattices
         },
         allNamespaces(state: State, getters) {
-            const allNamespaces = {};
+            const allNamespaces = { all: { name: "all", lattices: getters.allLattices } };
             for (const lattice of getters.allLattices) {
                 const namespace = allNamespaces[lattice.namespace]
                 if (namespace === undefined) {
@@ -37,17 +37,6 @@ export default createStore({
             }
             return allNamespaces
         },
-        latticesByMachine(state: State, getters) {
-            const latticesByMachine = {}
-            for (const lattice of getters.allLattices) {
-                const machine = latticesByMachine[lattice.machine]
-                if (machine === undefined) {
-                    latticesByMachine[lattice.machine] = { name: lattice.machine, lattices: [lattice] }
-                } else {
-                    machine["lattices"].push(lattice)
-                }
-            }
-            return latticesByMachine
-        }
+        // TODO: allMachines
     }
 })

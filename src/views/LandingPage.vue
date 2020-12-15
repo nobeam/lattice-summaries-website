@@ -1,30 +1,20 @@
 <template>
   <main>
-    <!-- <section class="py-8">
-      <div class="container m-auto px-4 grid gap-y-8 justify-items-center">
-        <h1 class="text-primary-900 text-2xl font-medium">
-          Automatically generated summaries of BESSY III prototype lattices
-        </h1>
-        <h2 class="text-primary-600 text-lg">
-          click on summary to view full lattice summary
-        </h2>
-      </div>
-    </section> -->
-    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
-      <div class="container mx-auto px-4">
-        <h1 class="my-4 text-2xl font-medium">Overview of Machines</h1>
+    <section id="overview-machines">
+      <div class="container mx-auto px-4 py-8 border-b-2 border-gray-100">
+        <h1 class="mb-8 text-2xl font-medium">Overview of machines</h1>
         <NamespaceList :namespaces="latticesByMachine" />
       </div>
     </section>
-    <section id="namespaces" class="py-8 border-b-2 border-gray-100">
-      <div class="container mx-auto px-4">
-        <h1 class="my-4 text-2xl font-medium">Overview of Namespaces</h1>
+    <section id="overview-namespaces">
+      <div class="container mx-auto px-4 py-8 border-b-2 border-gray-100">
+        <h1 class="mb-8 text-2xl font-medium">Overview of namespaces</h1>
         <NamespaceList :namespaces="allNamespaces" />
       </div>
     </section>
-    <section id="summaries" class="py-8 border-b-2 border-gray-100">
-      <div class="container mx-auto px-4">
-        <h1 class="my-4 text-2xl font-medium">Recent Lattices</h1>
+    <section id="recent-summaries">
+      <div class="container mx-auto px-4 py-8 border-b-2 border-gray-100">
+        <h1 class="mb-8 text-2xl font-medium">Recently added lattices</h1>
         <LatticeList :lattices="allLattices" />
       </div>
     </section>

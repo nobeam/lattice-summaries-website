@@ -37,9 +37,9 @@
       <h4 class="font-medium">Lattice files</h4>
       <p class="flex gap-2">
         <a
-          v-for="format in ['json', 'madx', 'lte']"
+          v-for="format in ['json', 'lte', 'madx']"
           :key="format"
-          class="px-4 py-1 rounded bg-gray-50 border border-gray-100 shadow hover:underline transform hover:scale-105"
+          class="px-4 py-1 rounded bg-white border border-gray-100 shadow hover:underline transform hover:scale-105"
           :href="`https://github.com/nobeam/lattice-summaries-lattices/blob/generated/${lattice.namespace}/${lattice.name}.${format}`"
           target="_blank"
         >
@@ -51,7 +51,7 @@
         <router-link
           v-for="simulation in lattice.simulations"
           :key="simulation"
-          class="px-4 py-1 rounded bg-gray-50 border border-gray-100 shadow transform hover:scale-105"
+          class="px-4 py-1 rounded bg-white border border-gray-100 shadow transform hover:scale-105"
           :to="{
             path: `/${lattice.namespace}/${lattice.name}/${simulation}`,
           }"
