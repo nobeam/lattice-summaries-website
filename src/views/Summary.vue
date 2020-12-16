@@ -20,6 +20,10 @@
         <Card>
           <LatticeInfo :lattice="lattice" />
         </Card>
+        <Card v-if="latticeInfo !== null">
+          <h2 class="text-xl font-medium mb-4">{{ latticeInfo[0] }}</h2>
+          <Table :data="latticeInfo[1]" />
+        </Card>
 
         <Card
           class="flex flex-col"
@@ -59,6 +63,7 @@ export default {
     return {
       name: "",
       lattice: null,
+      latticeInfo: null,
       simulation: "",
       twiss_tables: {},
       content_path: "",
@@ -87,6 +92,8 @@ export default {
       this.twiss_tables = await response.json();
       response = await fetch(base_path + "index.json");
       this.lattice = await response.json();
+      response = await fetch(base_path + "lattice_info.json");
+      this.latticeInfo = await response.json();
       // defer to make sure twiss_tables is loaded before imgs are updated
       this.content_path = content_path;
     },
