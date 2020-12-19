@@ -53,7 +53,7 @@
           <div class="h-12 bg-gray-100 border-shadow rounded flex">
             <button
               class="px-4 flex items-center rounded button-outline transition-colors duration-500"
-              :class="[viewMode === 'grid' ? 'bg-white' : '']"
+              :class="[viewMode === 'grid' ? 'bg-white z-10' : '']"
               @click="viewMode = 'grid'"
             >
               <HeroIcon
@@ -65,7 +65,7 @@
             </button>
             <button
               class="px-4 flex items-center rounded button-outline transition-colors duration-500"
-              :class="[viewMode === 'list' ? 'bg-white' : '']"
+              :class="[viewMode === 'list' ? 'bg-white z-10' : '']"
               @click="viewMode = 'list'"
             >
               <HeroIcon :paths="['M4 6h16M4 10h16M4 14h16M4 18h16']" />

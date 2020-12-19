@@ -10,7 +10,7 @@
     </button>
     <div
       v-show="isOpen"
-      class="absolute mt-2 w-56 bg-white border-shadow"
+      class="z-10 absolute mt-2 w-56 bg-white border-shadow"
       :class="`origin-top-${orientation} ${orientation}-0`"
       @mouseleave="isOpen = false"
     >
