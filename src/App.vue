@@ -15,7 +15,7 @@
   <div class="h-1"></div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapActions } from "vuex";
 
 import Header from "./components/Header.vue";
