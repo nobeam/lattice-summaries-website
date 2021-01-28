@@ -11,6 +11,6 @@ export default {
         return apiBase.get(`/${lattice.namespace}/${lattice.name}/info.json`)
     },
     async getSimulationResults(lattice: Lattice, simulation: string) {
-        return apiBase.get(`/${lattice.namespace}/${lattice.name}/{this.simulation}/twiss_tables.json`)
+        return apiBase.get(`/${lattice.namespace}/${lattice.name}/${simulation}/twiss_tables.json`)
     },
 }

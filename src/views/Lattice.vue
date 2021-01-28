@@ -1,16 +1,25 @@
 <template>
-  <main class="bg-white py-8">
-    <div class="container m-auto px-4">
-      <LatticeInfo v-if="lattice !== null" :lattice="lattice" />
+  <main class="py-8">
+    <div v-if="lattice !== null" class="container m-auto px-4 grid gap-4">
+      <Card>
+        <LatticeInfo :lattice="lattice" />
+      </Card>
+      <Card>
+        <h2 class="text-lg font-medium">Floorplan</h2>
+        <Floorplan :lattice="lattice" />
+      </Card>
     </div>
   </main>
 </template>
 
 <script>
 import LatticeInfo from "../components/LatticeInfo.vue";
+import Floorplan from "../components/Floorplan.vue";
+import Card from "../components/Card.vue";
+
 export default {
   name: "Lattice",
-  components: { LatticeInfo },
+  components: { LatticeInfo, Floorplan, Card },
   data() {
     return {
       name: null,
