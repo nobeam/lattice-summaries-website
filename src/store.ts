@@ -1,18 +1,17 @@
 import { createStore } from 'vuex'
-import { State, Info } from "./interfaces"
+import { State, AllLattices } from "./interfaces"
 import api from "./api"
-import { stat } from 'fs'
 
 export default createStore({
     strict: process.env.NODE_ENV !== 'production',
     state(): State {
         return {
-            info: { lattices: [] }
+            allLattices: []
         }
     },
     mutations: {
-        SET_INFO(state: State, info: Info) {
-            state.info = info
+        SET_INFO(state: State, info: AllLattices) {
+            state.allLattices = info
         }
     },
     actions: {
@@ -23,7 +22,7 @@ export default createStore({
     },
     getters: {
         allLattices(state: State) {
-            return state.info.lattices
+            return state.allLattices
         },
         allNamespaces(state: State, getters) {
             const allNamespaces = { all: { name: "all", lattices: getters.allLattices } };

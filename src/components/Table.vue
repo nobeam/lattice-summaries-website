@@ -1,26 +1,20 @@
 <template>
-  <div class="overflow-hidden border-shadow">
-    <table class="table-fixed text-sm w-full divide-y divide-gray-100">
+  <div class="border-shadow overflow-hidden">
+    <table class="divide-y divide-gray-100 text-sm w-full table-fixed">
       <thead class="bg-gray-50">
         <tr>
           <th
-            class="text-xs font-medium px-4 py-2 text-left text-gray-500 uppercase tracking-wider"
-          >
-            Parameter
-          </th>
+            class="font-medium text-xs text-left tracking-wider py-2 px-4 text-gray-500 uppercase"
+          >Parameter</th>
           <th
-            class="text-xs font-medium px-4 py-2 text-left text-gray-500 uppercase tracking-wider"
-          >
-            Value
-          </th>
+            class="font-medium text-xs text-left tracking-wider py-2 px-4 text-gray-500 uppercase"
+          >Value</th>
         </tr>
       </thead>
-      <tbody class="bg-white divide-y divide-gray-100">
+      <tbody class="divide-y bg-white divide-gray-100">
         <tr v-for="([parameter, value], i) in data" :key="i">
-          <td class="px-4 py-2">{{ parameter }}</td>
-          <td class="px-4 py-2">
-            {{ Number.parseFloat(value).toPrecision(3) }}
-          </td>
+          <td class="py-2 px-4">{{ parameter }}</td>
+          <td class="py-2 px-4">{{ Number.parseFloat(value).toPrecision(3) }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,7 +22,8 @@
 </template>
 
 
-<script>
+<script lang="ts">
+
 export default {
   name: "Table",
   props: {

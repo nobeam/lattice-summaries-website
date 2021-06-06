@@ -6,7 +6,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import LatticeInfo from "../components/LatticeInfo.vue";
 export default {
   name: "Lattice",

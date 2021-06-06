@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="mr-2 w-4 h-4"
+    class="h-4 mr-2 w-4"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -17,7 +17,7 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "HeroIcon",
   props: {

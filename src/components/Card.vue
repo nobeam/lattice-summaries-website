@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-white p-4 border-shadow">
+  <div class="bg-white border-shadow p-4">
     <slot></slot>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Card",
 };

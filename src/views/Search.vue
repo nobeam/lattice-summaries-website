@@ -2,12 +2,12 @@
   <main class="py-8">
     <div class="container m-auto px-4">
       <div class="grid gap-6">
-        <div class="flex flex-wrap gap-4 text-sm">
+        <div class="flex flex-wrap text-sm gap-4">
           <!-- <router-link to="/" class="flex items-center">
             <img draggable="false" src="../assets/logo-icon.svg" width="48" />
             <span class="p-2"></span>
-            <h1 class="text-base font-medium">Lattice Summaries</h1>
-          </router-link> -->
+            <h1 class="font-medium text-base">Lattice Summaries</h1>
+          </router-link>-->
           <Dropdown
             @select="(option) => (filterNamespace = option)"
             :selected="filterNamespace"
@@ -17,11 +17,9 @@
             ]"
           />
           <div
-            class="h-12 bg-white border-shadow px-4 flex-grow flex items-center button-outline-within"
+            class="bg-white border-shadow flex-grow flex h-12 px-4 items-center button-outline-within"
           >
-            <HeroIcon
-              :paths="['M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z']"
-            />
+            <HeroIcon :paths="['M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z']" />
             <input
               class="focus:outline-none"
               v-model="filterName"
@@ -50,9 +48,9 @@
             ]"
             orientation="right"
           />
-          <div class="h-12 bg-gray-100 border-shadow rounded flex">
+          <div class="border-shadow rounded flex bg-gray-100 h-12">
             <button
-              class="px-4 flex items-center rounded button-outline transition-colors duration-500"
+              class="rounded flex px-4 transition-colors duration-500 items-center button-outline"
               :class="[viewMode === 'grid' ? 'bg-white' : '']"
               @click="viewMode = 'grid'"
             >
@@ -60,20 +58,18 @@
                 :paths="[
                   'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z',
                 ]"
-              />
-              Grid
+              />Grid
             </button>
             <button
-              class="px-4 flex items-center rounded button-outline transition-colors duration-500"
+              class="rounded flex px-4 transition-colors duration-500 items-center button-outline"
               :class="[viewMode === 'list' ? 'bg-white' : '']"
               @click="viewMode = 'list'"
             >
-              <HeroIcon :paths="['M4 6h16M4 10h16M4 14h16M4 18h16']" />
-              List
+              <HeroIcon :paths="['M4 6h16M4 10h16M4 14h16M4 18h16']" />List
             </button>
           </div>
         </div>
-        <div class="text-sm text-gray-700 uppercase flex justify-end">
+        <div class="flex text-sm text-gray-700 uppercase justify-end">
           {{ filteredLattices.length }} lattice{{
             filteredLattices.length > 1 ? "s" : ""
           }}
@@ -84,7 +80,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import Fuse from "fuse.js";
 import { mapGetters } from "vuex";
 

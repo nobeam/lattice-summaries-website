@@ -1,9 +1,9 @@
 export interface State {
-    info: Info
+    allLattices: AllLattices
 }
 
-export interface Info {
-    lattices: Array<Lattice>
+export interface AllLattices {
+    [index: number]: Lattice
 }
 
 export interface Namespace {

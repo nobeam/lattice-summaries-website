@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <button
-      class="h-12 bg-white border-shadow px-4 flex items-center focus:outline-none"
+      class="bg-white border-shadow flex h-12 px-4 items-center focus:outline-none"
       type="button"
       @click="isOpen = !isOpen"
     >
@@ -10,7 +10,7 @@
     </button>
     <div
       v-show="isOpen"
-      class="absolute mt-2 w-56 bg-white border-shadow"
+      class="bg-white border-shadow mt-2 w-56 absolute"
       :class="`origin-top-${orientation} ${orientation}-0`"
       @mouseleave="isOpen = false"
     >
@@ -18,7 +18,7 @@
         <div
           v-for="(option, index) in options"
           :key="index"
-          class="cursor-pointer flex justify-between pl-4 pr-1 py-2 hover:bg-primary-50 hover:text-gray-900"
+          class="cursor-pointer flex py-2 pr-1 pl-4 justify-between hover:bg-primary-50 hover:text-gray-900"
           @click="$emit('select', option)"
         >
           {{ option }}
@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import HeroIcon from "../components/HeroIcon.vue";
 
 export default {
