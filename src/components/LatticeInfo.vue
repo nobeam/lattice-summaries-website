@@ -30,8 +30,8 @@
         <a
           v-for="format in ['json', 'lte', 'madx']"
           :key="format"
-          class="bg-white border rounded border-gray-100 shadow py-1 px-4 transform hover:underline hover:scale-105"
-          :href="`https://github.com/nobeam/lattice-summaries-lattices/blob/generated/${lattice.namespace}/${lattice.name}.${format}`"
+          class="bg-white border rounded border-gray-100 shadow py-1 px-4 transform hover:scale-105 hover:underline"
+          :href="`${$dataURL}/${lattice.namespace}/${lattice.name}/${lattice.name}.${format}`"
           target="_blank"
         >{{ format }}</a>
       </p>
